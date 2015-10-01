@@ -1,3 +1,4 @@
 # specimen
 开发版本
-除application，system目录为CI框架目录，其余为dwz框架内容
+php.ini 配置
+short_open_tag = On
