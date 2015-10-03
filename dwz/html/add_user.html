@@ -1,0 +1,36 @@
+<div class="pageContent">
+	
+	<form method="post" action="index.php/api/add_user" class="pageForm" onsubmit="return validateCallback(this, dialogAjaxDone)">
+		<div class="pageFormContent" layoutH="58">
+			<div class="unit">
+				<label>用户名(学号或教工号)：</label>
+				<input type="text" name="username" size="30" class="required"/>
+			</div>
+			<div class="unit">
+				<label>姓名：</label>
+				<input type="text" name="name" size="30" class="required"/>
+			</div>
+			<div class="unit">
+				<label>密码：</label>
+				<input type="text" name="password" size="30" class="required"/>
+			</div>
+			<div class="unit">
+				<label>选择用户类型</label>
+	<select class="combox" name="group">
+		<option value="student" selected="selected">学生</option>
+		<option value="admin">管理员</option>
+	</select>
+			</div>
+		</div>
+
+
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+				<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+			</ul>
+		</div>
+		
+	</form>
+	
+</div>

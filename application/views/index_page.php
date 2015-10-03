@@ -93,14 +93,34 @@ $(function(){
 				<div class="toggleCollapse"><h2>主菜单</h2><div>收缩</div></div>
 
 				<div class="accordion" fillSpace="sidebar">
-
+					
 					<div class="accordionContent">
 						<ul class="tree treeFolder">
-							<li><a>个人中心</a>
+							<li><a>开放功能</a>
 								<ul>
-									<li><a href="demo_page4.html" target="navTab" rel="page3" >上传植物标本</a></li>
+									<li><a href="demo_page4.html" target="navTab" rel="page3" >搜索标本</a></li>
 								</ul>
 							</li>
+							
+							<?php if ($this->session->userdata('username')){?>
+							<li><a>个人中心</a>
+								<ul>
+									<li><a href="demo_page4.html" target="navTab" rel="page3" >个人资料</a></li>
+									<li><a href="dwz/html/upload_plant.html" target="navTab" rel="upload_plant" >上传植物标本</a></li>
+									<li><a href="demo_page4.html" target="navTab" rel="page3" >上传动物标本</a></li>
+								</ul>
+							</li>
+							<?php }?>
+							
+							<?php if ($this->session->userdata('usergroup') == 'admin'){?>
+							<li><a>后台管理</a>
+								<ul>
+									<li><a href="index.php/admin/user_list" target="navTab" rel="user_list" >用户管理</a></li>
+									<li><a href="index.php/admin/news_list" target="navTab" rel="" >标本审核</a></li>
+									<li><a href="index.php/admin/news_list" target="navTab" rel="news_list" >新闻管理</a></li>
+								</ul>
+							</li>
+							<?php }?>
 						</ul>
 					</div>
 

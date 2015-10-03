@@ -1,0 +1,42 @@
+<div class="pageContent">
+	<form method="post" action="demo/common/ajaxDone.html" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+		<div class="pageFormContent" layoutH="56">
+			<p>
+				<label>中文名</label>
+				<input name="chineseName" type="text" size="30" class="required" />
+			</p>
+			<p>
+				<label>拉丁名：</label>
+				<input name="latinName" class="required" type="text" size="30" />
+			</p>
+			<p>
+				<label>别名（可选）：</label>
+				<input type="text" class="" name="nickname" value="" size="30"/>
+			</p>
+						<p>
+				<label>采集地：</label>
+				<select name="location" class="required combox">
+					<option value="武汉" selected>武汉</option>
+					<option value="大别山" >大别山</option>
+					<option value="云南" >云南</option>
+					<option value="庐山" >庐山</option>
+				</select>
+			</p>
+			<p>
+				<label>标本描述：</label>
+				<textarea class="editor required" name="content" rows="25" cols="100" tools="Blocktag,Fontface,FontSize,Bold,Italic,Underline,Strikethrough,FontColor,|,Align,Outdent,Indent,List,Cut,Copy,Paste,Pastetext,|,Emot,Link,/,Source,Fullscreen,About"></textarea>
+			</p>
+
+		</div>
+		<div class="formBar">
+			<ul>
+				<!--<li><a class="buttonActive" href="javascript:;"><span>保存</span></a></li>-->
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li>
+					<div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+				</li>
+			</ul>
+		</div>
+	</form>
+</div>
+

@@ -1,0 +1,32 @@
+<div style="display:block; overflow:hidden; padding:0 10px; line-height:21px;">
+	
+	<div class="tabs">
+		<div class="tabsContent" layoutH="40">
+			<div>
+				<form method="post" action="index.php/api/add_news" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+					<div class="pageFormContent" >
+			<div class="unit">
+				<label>新闻标题：</label>
+				<input type="text" name="title" size="50" class="required"/>
+			</div>
+			<br/>
+						<div class="unit">
+							<textarea class="editor required" name="content" rows="20" cols="100" tools="Blocktag,Fontface,FontSize,Bold,Italic,Underline,Strikethrough,FontColor,|,Align,Outdent,Indent,List,Cut,Copy,Paste,Pastetext,|,Emot,Link,/,Source,Fullscreen,About"></textarea>
+						</div>
+					</div>
+					<div class="formBar">
+						<ul>
+							<li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+							<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+						</ul>
+					</div>
+				</form>
+			</div>
+			
+		</div>
+		<div class="tabsFooter">
+			<div class="tabsFooterContent"></div>
+		</div>
+	</div>
+
+</div>
