@@ -63,19 +63,19 @@ $(function(){
 	<div id="layout">
 		<div id="header">
 			<div class="headerNav">
-				<a class="logo" href="http://j-ui.com">标志</a>
+				<h2>华中科技大学</h2>
 				<ul class="nav">
+					<li><a>欢迎 <?php echo $this->session->userdata('username');?></a></li>
 					<?php if (!$this->session->userdata('username')){?><li><a href="dwz/html/login_dialog.html" target="dialog" width="600">登录</a></li><?php }?>
-					<li><a href="changepwd.html" target="dialog" width="600">设置</a></li>
 					<?php if ($this->session->userdata('username')){?><li><a href="index.php/api/logout">退出</a></li><?php }?>
 				</ul>
 				<ul class="themeList" id="themeList">
-					<li theme="default"><div class="selected">蓝色</div></li>
+					<li theme="default"><div >蓝色</div></li>
 					<li theme="green"><div>绿色</div></li>
 					<!--<li theme="red"><div>红色</div></li>-->
 					<li theme="purple"><div>紫色</div></li>
 					<li theme="silver"><div>银色</div></li>
-					<li theme="azure"><div>天蓝</div></li>
+					<li theme="azure"><div class="selected">天蓝</div></li>
 				</ul>
 			</div>
 
@@ -98,16 +98,16 @@ $(function(){
 						<ul class="tree treeFolder">
 							<li><a>开放功能</a>
 								<ul>
-									<li><a href="demo_page4.html" target="navTab" rel="page3" >搜索标本</a></li>
+									<li><a href="index.php/specimen/search" target="navTab" rel="page3" >搜索标本</a></li>
 								</ul>
 							</li>
 							
 							<?php if ($this->session->userdata('username')){?>
 							<li><a>个人中心</a>
 								<ul>
-									<li><a href="demo_page4.html" target="navTab" rel="page3" >个人资料</a></li>
+									<li><a href="index.php/person/myself" target="navTab" rel="personInfo" >个人资料</a></li>
 									<li><a href="dwz/html/upload_plant.html" target="navTab" rel="upload_plant" >上传植物标本</a></li>
-									<li><a href="demo_page4.html" target="navTab" rel="page3" >上传动物标本</a></li>
+									<li><a href="dwz/html/upload_animal.html" target="navTab" rel="upload_animal" >上传动物标本</a></li>
 								</ul>
 							</li>
 							<?php }?>
@@ -116,8 +116,16 @@ $(function(){
 							<li><a>后台管理</a>
 								<ul>
 									<li><a href="index.php/admin/user_list" target="navTab" rel="user_list" >用户管理</a></li>
-									<li><a href="index.php/admin/news_list" target="navTab" rel="" >标本审核</a></li>
 									<li><a href="index.php/admin/news_list" target="navTab" rel="news_list" >新闻管理</a></li>
+									<li><a>标本管理</a>
+										<ul>
+										<li><a href="index.php/admin/pass_plant" target="navTab" rel="pass_plant">已通过植物标本</a></li>
+										<li><a href="index.php/admin/pass_animal" target="navTab" rel="pass_animal">已通过动物标本</a></li>
+										<li><a href="index.php/admin/notcheck_plant" target="navTab" rel="notcheck_plant">待审核植物标本</a></li>
+										<li><a href="index.php/admin/notcheck_animal" target="navTab" rel="notcheck_animal">待审核动物标本</a></li>
+										</ul>
+									</li>
+									
 								</ul>
 							</li>
 							<?php }?>
@@ -132,22 +140,22 @@ $(function(){
 				<div class="tabsPageHeader">
 					<div class="tabsPageHeaderContent"><!-- 显示左右控制时添加 class="tabsPageHeaderMargin" -->
 						<ul class="navTab-tab">
-							<li tabid="main" class="main"><a href="javascript:;"><span><span class="home_icon">我的主页</span></span></a></li>
+							<li tabid="main" class="main"><a href="javascript:;"><span><span class="home_icon">主页</span></span></a></li>
 						</ul>
 					</div>
 					<div class="tabsLeft">left</div><!-- 禁用只需要添加一个样式 class="tabsLeft tabsLeftDisabled" -->
 					<div class="tabsRight">right</div><!-- 禁用只需要添加一个样式 class="tabsRight tabsRightDisabled" -->
 					<div class="tabsMore">more</div>
 				</div>
-				<ul class="tabsMoreList">
-					<li><a href="javascript:;">主页</a></li>
-				</ul>
+
 				<div class="navTab-panel tabsPageContent layoutBox">
 					<div class="page unitBox">
 						<div class="accountInfo">
 							<div class="alertInfo">
+								<p><a href="dwz/html/about.html" target="dialog">关于网站</a></p>
 							</div>
-							<p><span>华中科技大学标本馆</span></p>
+							<p><span>华中科技大学数字标本馆 v1.0</span></p>
+							<p>登录体验更多功能！</p>
 						</div>
 						
 						<div style="width:230px;position: absolute;top:60px;right:0" layoutH="80">

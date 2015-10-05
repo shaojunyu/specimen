@@ -1,5 +1,5 @@
 <div class="pageContent">
-	<form method="post" action="demo/common/ajaxDone.html" class="pageForm required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
+	<form method="post" name="plant_info" action="index.php/upload/upload_plant" class="required-validate" onsubmit="return validateCallback(this, navTabAjaxDone);">
 		<div class="pageFormContent" layoutH="56">
 			<p>
 				<label>中文名</label>
@@ -13,7 +13,7 @@
 				<label>别名（可选）：</label>
 				<input type="text" class="" name="nickname" value="" size="30"/>
 			</p>
-						<p>
+			<p>
 				<label>采集地：</label>
 				<select name="location" class="required combox">
 					<option value="武汉" selected>武汉</option>
@@ -22,10 +22,36 @@
 					<option value="庐山" >庐山</option>
 				</select>
 			</p>
-			<p>
-				<label>标本描述：</label>
-				<textarea class="editor required" name="content" rows="25" cols="100" tools="Blocktag,Fontface,FontSize,Bold,Italic,Underline,Strikethrough,FontColor,|,Align,Outdent,Indent,List,Cut,Copy,Paste,Pastetext,|,Emot,Link,/,Source,Fullscreen,About"></textarea>
-			</p>
+			<p></p>
+			<div>
+				
+				<label style="color:red;">植物分类：</label>				
+				<select class="combox" name="division" ref="plant_class" refUrl="index.php/api/get_sons/{value}">
+					<option value="all">门</option>
+					<option value="p1">被子植物门</option>
+					<option value="p2">裸子植物门</option>
+				</select>
+				<select class="combox required" name="class" id="plant_class" ref="subplantclass" refUrl="index.php/api/get_sons/{value}">
+					<option value="all">纲</option>
+				</select>
+				<select class="combox" name="subclass"  id="subplantclass" ref="plantfamily" refUrl="index.php/api/get_sons/{value}">
+					<option value="all">亚纲</option>
+				</select>
+				<select class="combox" name="family" id="plantfamily" >
+					<option value="all">科</option>
+				</select>
+			
+			</div>
+			
+			<div class="divider"></div>
+			<div class="">
+				<p>标本描述(上传的单个文件最大为2048KB，图片过大请压缩！)：</p>
+				<textarea class="editor required" name="content" rows="30" cols="170" 
+					upLinkUrl="index.php/upload/upload_plant_media" upLinkExt="zip,rar,txt" 
+					upImgUrl="index.php/upload/upload_plant_media" upImgExt="jpg,jpeg,gif,png,gif" 
+					upFlashUrl="index.php/upload/upload_plant_media" upFlashExt="swf"
+					upMediaUrl="index.php/upload/upload_plant_media" upMediaExt:"avi"></textarea>
+			</div>
 
 		</div>
 		<div class="formBar">
@@ -39,4 +65,3 @@
 		</div>
 	</form>
 </div>
-
