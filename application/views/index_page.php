@@ -24,14 +24,6 @@
 <script src="dwz/xheditor/xheditor_lang/zh-cn.js" type="text/javascript"></script>
 <script src="dwz/uploadify/scripts/jquery.uploadify.js" type="text/javascript"></script>
 
-<!-- svg图表  supports Firefox 3.0+, Safari 3.0+, Chrome 5.0+, Opera 9.5+ and Internet Explorer 6.0+ -->
-<script type="text/javascript" src="dwz/chart/raphael.js"></script>
-<script type="text/javascript" src="dwz/chart/g.raphael.js"></script>
-<script type="text/javascript" src="dwz/chart/g.bar.js"></script>
-<script type="text/javascript" src="dwz/chart/g.line.js"></script>
-<script type="text/javascript" src="dwz/chart/g.pie.js"></script>
-<script type="text/javascript" src="dwz/chart/g.dot.js"></script>
-
 <script src="dwz/js/dwz.min.js" type="text/javascript"></script>
 
 <!-- 可以用dwz.min.js替换前面全部dwz.*.js (注意：替换是下面dwz.regional.zh.js还需要引入)

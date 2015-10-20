@@ -2,10 +2,12 @@
 $specimen = '';
 if ($type == 'plant') {
 	$this->db->where('id',$id);
-	$specimen = $this->db->get('plant')->result_array()[0];
+	$res = $this->db->get('plant')->result_array();
+	$specimen = $res[0];
 }elseif ($type == 'animal') {
 	$this->db->where('id',$id);
-	$specimen = $this->db->get('animal')->result_array()[0];
+	$res = $this->db->get('animal')->result_array();
+	$specimen = $res[0];
 }else {exit('参数错误！');}
 ?>
 <div class="pageContent">

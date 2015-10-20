@@ -3,10 +3,12 @@
 $info = '';
 if ($type == 'plant') {
 	$this->db->where('id',$id);
-	$info = $this->db->get('plant')->result_array()[0];
+	$res = $this->db->get('plant')->result_array();
+	$info = $res[0];
 }else {
 	$this->db->where('id',$id);
-	$info = $this->db->get('animal')->result_array()[0];
+	$res = $this->db->get('animal')->result_array();
+	$info = $res[0];
 }
 ?>
 <div class="pageContent" layoutH='0' style="margin-left:5px;">

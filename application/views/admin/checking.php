@@ -3,10 +3,12 @@
 $info = '';
 if ($type == 'plant') {
 	$this->db->where('id',$id);
-	$info = $this->db->get('plant')->result_array()[0];
+	$res = $this->db->get('plant')->result_array();
+	$info = $res[0];
 }else {
 	$this->db->where('id',$id);
-	$info = $this->db->get('animal')->result_array()[0];
+	$res = $this->db->get('animal')->result_array();
+	$info = $res[0];
 }
 ?>
 <h2 class="contentTitle">标本审核</h2>
@@ -18,7 +20,7 @@ if ($type == 'plant') {
 			<li class="line"></li>
 			<li><a class="delete" href="index.php/api/notpass/<?php echo $type;?>/<?php echo $id;?>" target="ajaxTodo" title="确定要拒绝通过吗?"><span>拒绝通过</span></a></li>
 			<li class="line"></li>
-			<li><a class="edit" href="index.php/specimen/reEdit/<?php echo $type;?>/<?php echo $id;?> target="navTab"><span>修改</span></a></li>
+			<li><a class="edit" href="index.php/specimen/reEdit/<?php echo $type;?>/<?php echo $id;?>" target="navTab"><span>修改</span></a></li>
 			<li class="line"></li>
 			<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
 			<li class="line"></li>

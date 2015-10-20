@@ -2,7 +2,8 @@
 $username = $this->session->userdata('username');
 $name = $this->session->userdata('name');
 $this->db->where('username',$username);
-$user = $this->db->get('user')->result_array()[0];
+$res = $this->db->get('user')->result_array();
+$user = $res[0];
 ?>
 <div class="accountInfo">	
 	<p><span>个人中心</span></p>
