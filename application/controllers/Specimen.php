@@ -1,13 +1,36 @@
 <?php
 
 class Specimen extends CI_Controller{
+	//首页浏览
+	public function plant_index($search = FALSE){
+		if ($search) {
+			$keyword = $this->input->post('keyword');
+			$this->load->view('plant_index',array('search'=>true,'keyword'=>$keyword));
+		}else {
+			$this->load->view('plant_index',array('search'=>false));
+		}
+		
+	}
+	public function animal_index($search = FALSE){
+		if ($search) {
+			$keyword = $this->input->post('keyword');
+			$this->load->view('animal_index',array('search'=>true,'keyword'=>$keyword));
+		}else {
+			$this->load->view('animal_index',array('search'=>false));
+		}
+	}
+	
 	
 	public function detail($type,$id,$look_type = 'look'){
 		$this->load->view('detail_page',array('type'=>$type,'id'=>$id,'look_type'=>$look_type));
 	}
 	
+	public function search_page(){
+		$this->load->view('demo');
+	}
+	
 	public function search(){
-		echo '<h1>正在开发中，请稍后</h1>';
+		echo '{"statusCode":"200", "message":"", "navTabId":"", "forwardUrl":"", "callbackType":"closeCurrent"}';
 	}
 	
 	public function reEdit($type,$id){

@@ -28,7 +28,7 @@ $user = $res[0];
 		<div class="tabsContent">
 		<!-- 我上传的植物标本----------------------------------------- -->
 		<div>
-				<table class="table" width="100%">
+				<table class="table" width="100%" layoutH='0'>
 		<thead>
 			<tr>
 				<th>中文名</th>
@@ -63,7 +63,7 @@ foreach ($plant_array as $plant){
 	<!-- 我上传的动物标本----------------------------------------- -->
 	<div>
 	
-					<table class="table" width="100%">
+					<table class="table" width="100%" layoutH='0'>
 		<thead>
 			<tr>
 				<th>中文名</th>

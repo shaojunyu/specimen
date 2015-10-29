@@ -90,7 +90,8 @@ $(function(){
 						<ul class="tree treeFolder">
 							<li><a>开放功能</a>
 								<ul>
-									<li><a href="index.php/specimen/search" target="navTab" rel="page3" >搜索标本</a></li>
+									<li><a href="index.php/specimen/plant_index" target="navTab" rel="plant_index" >植物标本</a></li>
+									<li><a href="index.php/specimen/animal_index" target="navTab" rel="animal_index" >动物标本</a></li>
 								</ul>
 							</li>
 							
@@ -135,24 +136,59 @@ $(function(){
 							<li tabid="main" class="main"><a href="javascript:;"><span><span class="home_icon">主页</span></span></a></li>
 						</ul>
 					</div>
-					<div class="tabsLeft">left</div><!-- 禁用只需要添加一个样式 class="tabsLeft tabsLeftDisabled" -->
-					<div class="tabsRight">right</div><!-- 禁用只需要添加一个样式 class="tabsRight tabsRightDisabled" -->
-					<div class="tabsMore">more</div>
 				</div>
-
 				<div class="navTab-panel tabsPageContent layoutBox">
 					<div class="page unitBox">
 						<div class="accountInfo">
 							<div class="alertInfo">
 								<p><a href="dwz/html/about.html" target="dialog">关于网站</a></p>
 							</div>
-							<p><span>华中科技大学数字标本馆 v1.0</span></p>
-							<p>登录体验更多功能！</p>
+							<p><span>华中科技大学数字标本馆 v1.1</span></p>
+							<p>登录体验更多功能！最新更新日期2015/11/1</p>
 						</div>
-						
-						<div style="width:230px;position: absolute;top:60px;right:0" layoutH="80">
-							<iframe width="100%" height="430" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?width=0&height=430&fansRow=2&ptype=1&skin=1&isTitle=0&noborder=1&isWeibo=1&isFans=0&uid=1739071261&verifier=c683dfe7"></iframe>
-						</div>
+					
+<div class="pageFormContent" layoutH="80" style="margin-right:230px">
+<?php 
+$CI = get_instance();
+$news_array = get_instance()->db->get('news')->result_array();
+if(count($news_array) >= 1){
+?>
+<table class="table" width="100%" layoutH="80">
+		<thead>
+			<tr>
+				<th width="50">新闻标题</th>
+				<th width="50">作者</th>
+				<th width="50">发布时间</th>
+				<th width="50">内容提要</th>
+				<th width="50"></th>
+			</tr>
+		</thead>
+
+		<tbody>
+<?php 
+
+foreach ($news_array as $news){
+?>
+			<tr target="newsid" rel="<?php echo $news['id'];?>">
+				<td><?php echo $news['title'];?></td>
+				<?php 
+				$CI->db->where('username',$news['writer']);
+				$r = $CI->db->get('user')->result_array()[0];
+				$name = $r['name'];
+				?>
+				<td><?php echo $name;?></td>
+				<td><?php echo $news['time']?></td>
+				<td><?php echo substr(strip_tags($news['content']),0,100)?></td>
+				<td><a  href="<?php echo base_url('index.php/admin/news_detail/'.$news['id']);?>" target="navTab" title="新闻详情"><span>查看详情</span></a></td>
+			</tr>
+<?php 
+}}
+?>
+		</tbody>
+	</table>
+</div>
+					
+					
 					</div>
 					
 				</div>

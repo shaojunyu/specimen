@@ -30,7 +30,7 @@ foreach ($news_array as $news){
 				<td><?php echo $news['writer'];?></td>
 				<td><?php echo $news['time']?></td>
 				<td><?php echo substr(strip_tags($news['content']),0,100)?></td>
-				<td><a  href="<?php echo base_url('index.php/admin/news_detail/'.$news['id']);?>" target="dialog" rel="dlg_page12" mask="true"><span>查看详情</span></a></td>
+				<td><a  href="<?php echo base_url('index.php/admin/news_detail/'.$news['id']);?>" target="navTab" title="新闻详情"><span>查看详情</span></a></td>
 			</tr>
 <?php 
 }

@@ -148,17 +148,36 @@ class Api extends CI_Controller{
 	
 	//纲
 	//@param 父
-	public function get_sons($father){
+	public function get_sons($father,$option = 'part'){
 		if ($father == 'all') {
-			echo '[["all", "请先选上一级"]]';
+			echo '[["all", "无"]]';
+			exit();
+		}
+		if ($father == 'animal' and $option == 'part') {
+			echo '[["a001", "节肢动物门"],["a002","脊索动物门"]]';
+			exit();
+		}elseif ($father == 'animal' and $option == 'all') {
+			echo '[["null","暂未选"],["a001", "节肢动物门"],["a002","脊索动物门"]]';
+			exit();
+		}
+		if ($father == 'plant' and $option == 'part') {
+			echo '[["p1", "被子植物门"],["p2","裸子植物门"]]';
+			exit();
+		}elseif($father == 'plant' and $option == 'all') {
+			echo '[["null","暂未选"],["p1", "被子植物门"],["p2","裸子植物门"]]';
 			exit();
 		}
 		$this->db->where('father',$father);
 		$res_array = $this->db->get('classify')->result_array();
 		$data = '[';
+		if ($option = 'all') {
+			$data = $data.'["null","暂未选"],';
+		}
 		foreach ($res_array as $one){
 			$data = $data.'["'.$one['id'].'","'.$one['name'].'"],';
 		}
+
+		
 		$data = substr($data, 0,strlen($data)-1);
 		if ($data == NULL) {
 			$data = '[["null", "无"]]';
